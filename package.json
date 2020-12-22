@@ -1,0 +1,35 @@
+{
+	"name": "lambda-es6-boilerplate",
+	"version": "1.0.0",
+	"description": "",
+	"author": "Chris Villarreal",
+	"scripts": {
+		"start": "serverless offline",
+		"preinstall": "npx npm-force-resolutions",
+		"format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+	},
+	"resolutions": {
+		"graceful-fs": "^4.2.4"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run format"
+		}
+	},
+	"dependencies": {
+		"12": "^1.0.2",
+		"@middy/core": "^1.5.0",
+		"@middy/http-cors": "^1.5.0",
+		"@middy/http-json-body-parser": "^1.5.0",
+		"@middy/http-response-serializer": "^1.5.0",
+		"@middy/http-security-headers": "^1.5.0",
+		"babel-cli": "^6.26.0",
+		"babel-preset-latest": "^6.24.1",
+		"serverless-babel-plugin": "^0.2.0",
+		"serverless-offline": "^6.8.0"
+	},
+	"devDependencies": {
+		"husky": "^4.3.6",
+		"prettier": "^2.2.1"
+	}
+}

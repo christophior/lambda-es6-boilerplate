@@ -1,0 +1,39 @@
+service: function-compiled-with-babel
+
+frameworkVersion: ">=1.1.0 <3.0.0"
+
+plugins:
+    - serverless-babel-plugin
+    - serverless-offline
+
+custom:
+    babelPresets:
+        - latest
+    serverless-offline:
+        httpPort: 3000
+
+provider:
+    name: aws
+    runtime: nodejs12.x
+    memorySize: 256 # optional, in MB, default is 1024
+    stage: dev
+    apiGateway:
+        shouldStartNameWithService: true
+
+functions:
+    example:
+        handler: handler.example
+    getExample:
+        handler: apiHandler.getExample
+        events:
+            - http:
+                  path: example
+                  method: get
+                  cors: true
+    postExample:
+        handler: apiHandler.postExample
+        events:
+            - http:
+                  path: example
+                  method: post
+                  cors: true
