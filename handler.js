@@ -1,4 +1,4 @@
-const { lambdaMiddleware } = require("./utils/middleware")
+const { lambdaMiddleware } = require("./utils/middleware");
 
 module.exports.example = lambdaMiddleware((event, context, callback) => {
 	callback(null, {
@@ -6,5 +6,5 @@ module.exports.example = lambdaMiddleware((event, context, callback) => {
 		body: {
 			message: "Success!",
 		},
-	})
-})
+	});
+});

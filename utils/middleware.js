@@ -1,12 +1,12 @@
-const middy = require("@middy/core")
+const middy = require("@middy/core");
 
-const httpJsonBodyParser = require("@middy/http-json-body-parser")
-const httpResponseSerializer = require("@middy/http-response-serializer")
-const cors = require("@middy/http-cors")
-const httpSecurityHeaders = require("@middy/http-security-headers")
+const httpJsonBodyParser = require("@middy/http-json-body-parser");
+const httpResponseSerializer = require("@middy/http-response-serializer");
+const cors = require("@middy/http-cors");
+const httpSecurityHeaders = require("@middy/http-security-headers");
 
 module.exports.apiMiddleware = (handler) => {
-	const middyHandler = middy(handler)
+	const middyHandler = middy(handler);
 
 	middyHandler
 		.use(httpJsonBodyParser())
@@ -27,15 +27,15 @@ module.exports.apiMiddleware = (handler) => {
 				],
 				default: "application/json",
 			})
-		)
+		);
 
-	return middyHandler
-}
+	return middyHandler;
+};
 
 module.exports.lambdaMiddleware = (handler) => {
-	const middyHandler = middy(handler)
+	const middyHandler = middy(handler);
 
-	middyHandler.use(httpJsonBodyParser()).use(cors()).use(httpSecurityHeaders())
+	middyHandler.use(httpJsonBodyParser()).use(cors()).use(httpSecurityHeaders());
 
-	return middyHandler
-}
+	return middyHandler;
+};
