@@ -3,7 +3,7 @@ service: function-compiled-with-babel
 frameworkVersion: ">=1.1.0 <3.0.0"
 
 plugins:
-    - serverless-babel-plugin
+    - serverless-webpack
     - serverless-offline
 
 custom:
@@ -11,6 +11,9 @@ custom:
         - latest
     serverless-offline:
         httpPort: 3000
+    webpack:
+        webpackConfig: ./webpack.config.js
+        includeModules: true
 
 provider:
     name: aws
